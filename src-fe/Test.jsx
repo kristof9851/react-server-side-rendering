@@ -5,7 +5,7 @@ class Test extends React.Component {
     super(props);
 
     this.state = {
-      counter: 0
+      counter: props.counter === undefined ? 0 : props.counter
     };
 
     this.increment = this.increment.bind(this);

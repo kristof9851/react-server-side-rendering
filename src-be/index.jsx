@@ -12,16 +12,26 @@ app.engine('hbs', hbs({
   defaultLayout: 'index',
   extname: '.hbs',
   layoutsDir: appRootPath + '/src-be/views/layouts',
-  partialsDir: appRootPath + '/src-be/views/partials'
+  partialsDir: appRootPath + '/src-be/views/partials',
+  helpers : {
+    json(obj) {
+      return JSON.stringify(obj);
+    }
+  }
 }));
 app.set('view engine', 'hbs');
 
 app.use('/dist-fe', express.static(appRootPath + '/dist-fe'));
 
 app.use('/', (req, res) => {
+  const data = {
+    counter: 123
+  };
+
   res.render('index', {
     who: 'world',
-    testReact: ReactDomServer.renderToString(<Test />)
+    testReact: ReactDomServer.renderToString(<Test {...data} />),
+    testReactData: data
   });
 });
 
