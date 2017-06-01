@@ -1,0 +1,32 @@
+{
+  "name": "react-server-test",
+  "version": "1.0.0",
+  "description": "react-server-test",
+  "engines": {
+    "node": "6.9"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "nodemon-start": "./node_modules/.bin/nodemon --watch src-be --watch src-fe --ext js,jsx,hbs --exec 'npm start'",
+    "start": "npm run generate-js && node dist-be/bundle.js",
+    "generate-js": "./node_modules/.bin/webpack"
+  },
+  "author": "Kristof Kotai",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "react": "15.3.2",
+    "react-dom": "15.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "1.11.0",
+    "webpack": "2.6.1",
+    "webpack-node-externals": "1.6.0",
+    "babel-loader": "7.0.0",
+    "babel-core": "6.24.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13"
+  }
+}
